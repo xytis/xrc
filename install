@@ -21,6 +21,11 @@ if [ ! -d ~/.config/nvim ]; then
   ln -sv $XRCDIR/git ~/.config
 fi
 
+if [ ! -f ~/.ctags ]; then
+  echo "Linking ctags config"
+  ln -sv $XRCDIR/ctags/ctags ~/.ctags
+fi
+
 if [ ! -f ~/.zimrc ]; then
   echo "Installing zim"
   setopt EXTENDED_GLOB

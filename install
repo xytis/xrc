@@ -1,0 +1,34 @@
+#!/bin/zsh
+
+set -e
+
+XRCDIR=$(dirname $0)
+
+if [ ! -d ~/.config ]; then
+  mkdir ~/.config
+fi
+
+if [ ! -d ~/.config/nvim ]; then
+  echo "Linking nvim config"
+  ln -sv $XRCDIR/nvim ~/.config
+  echo "Installing dein"
+  curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > /tmp/dein-installer.sh
+  sh /tmp/dein-installer.sh ~/.cache/dein
+fi
+
+if [ ! -d ~/.config/nvim ]; then
+  echo "Linking git config"
+  ln -sv $XRCDIR/git ~/.config
+fi
+
+if [ ! -f ~/.zimrc ]; then
+  echo "Installing zim"
+  setopt EXTENDED_GLOB
+  for template_file in ${XRCDIR}/zim/templates/*; do
+    user_file="${HOME}/.${template_file:t}"
+    touch ${user_file}
+    ( print -rn "$(<${template_file})$(<${user_file})" >! ${user_file} ) 2>/dev/null
+  done
+fi
+
+echo "XRC applied!"

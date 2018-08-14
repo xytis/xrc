@@ -2,7 +2,7 @@
 
 set -e
 
-XRCDIR=$(dirname $0)
+XRCDIR=$(cd `dirname $0` && pwd)
 
 if [ ! -d ~/.config ]; then
   mkdir ~/.config

@@ -16,7 +16,7 @@ if [ ! -d ~/.config/nvim ]; then
   sh /tmp/dein-installer.sh ~/.cache/dein
 fi
 
-if [ ! -d ~/.config/nvim ]; then
+if [ ! -d ~/.config/git ]; then
   echo "Linking git config"
   ln -sv $XRCDIR/git ~/.config
 fi
@@ -24,6 +24,11 @@ fi
 if [ ! -f ~/.ctags ]; then
   echo "Linking ctags config"
   ln -sv $XRCDIR/ctags/ctags ~/.ctags
+fi
+
+if [ ! -f ~/.zshrc ]; then
+  echo "Copying .zshrc"
+  cp -v $XRCDIR/zshrc ~/.zshrc
 fi
 
 if [ ! -f ~/.zimrc ]; then

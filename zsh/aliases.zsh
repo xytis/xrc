@@ -88,3 +88,4 @@ alias gz='tar -zcvf'
 alias t='todo.sh'
 
 alias ap='ansible-playbook'
+alias k='kubectl'

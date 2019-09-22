@@ -149,3 +149,5 @@
   templatedir = ~/.config/git/template
 [status]
   submoduleSummary = true
+[http]
+  cookiefile = ~/.gitcookies

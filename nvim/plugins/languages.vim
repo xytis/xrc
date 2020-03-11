@@ -1,5 +1,5 @@
 " Language plugins
-call dein#add("scrooloose/syntastic.git")
+call dein#add("dense-analysis/ale")
 
 call dein#add("sheerun/vim-polyglot")
 call dein#add("sbdchd/neoformat")

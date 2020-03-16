@@ -3,8 +3,15 @@
 alias df='df -h'
 alias du='du -h -d 2'
 
-alias ll='ls -alGh'
-alias ls='ls -Gh'
+exa --version > /dev/null 2>&1
+EXA_INSTALLED=$?
+if [ $EXA_INSTALLED -eq 0 ]; then
+  alias ll='exa -al'
+  alias ls='exa'
+else
+  alias ll='ls -alGh'
+  alias ls='ls -Gh'
+fi
 
 nvim --version > /dev/null 2>&1
 NEOVIM_INSTALLED=$?

@@ -1,8 +1,28 @@
 #!/bin/zsh
 
-set -e
+set -x
 
 XRCDIR=$(cd `dirname $0` && pwd)
+
+which brew 2>&1 >/dev/null
+if [ $? -ne 0 ]; then
+  echo "Unable to find brew. Aborting."
+  exit 1
+fi
+
+which python3 2>&1 >/dev/null
+if [ $? -ne 0 ]; then
+  echo "Python 3 not found, installing via brew"
+  brew install python3 || exit 1
+fi
+
+which nvim 2>&1 >/dev/null
+if [ $? -ne 0 ]; then
+  echo "Neovim not found, installing via brew"
+  brew install neovim || exit 1
+  echo "Ensuring python module exists"
+  pip3 install neovim || exit 1
+fi
 
 if [ ! -d ~/.config ]; then
   mkdir ~/.config
@@ -26,9 +46,13 @@ if [ ! -f ~/.ctags ]; then
   ln -sv $XRCDIR/ctags/ctags ~/.ctags
 fi
 
-if [ ! -f ~/.zshrc ]; then
-  echo "Copying .zshrc"
-  cp -v $XRCDIR/zshrc ~/.zshrc
+if [ ! -h ~/.zshrc ]; then
+  if [ -f ~/.zshrc ]; then
+    echo "Preserving old .zshrc"
+    mv -v ~/.zshrc ~/.zshrc.old
+  fi
+  echo "Linking .zshrc"
+  ln -sv $XRCDIR/zshrc ~/.zshrc
 fi
 
 if [ ! -f ~/.zimrc ]; then
@@ -41,4 +65,4 @@ if [ ! -f ~/.zimrc ]; then
   done
 fi
 
-echo "XRC applied!"
+echo "XRC applied and in sync!"

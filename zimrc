@@ -6,6 +6,7 @@
 zmodule environment
 # Provides handy git aliases and functions.
 zmodule git
+zstyle ':zim:git' aliases-prefix 'g'
 # Applies correct bindkeys for input events.
 zmodule input
 # Sets a custom terminal title.

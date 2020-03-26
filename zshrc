@@ -13,11 +13,12 @@ path=(
   /sbin
 )
 
-# Change default zim location
-export ZIM_HOME=${HOME}/.xrc/zim
-
 # Start zim
-[[ -s ${ZIM_HOME}/init.zsh ]] && source ${ZIM_HOME}/init.zsh
+if [[ ${ZIM_HOME}/init.zsh -ot ${ZDOTDIR:-${HOME}}/.zimrc ]]; then
+  # Update static initialization script if it's outdated, before sourcing it
+  source ${ZIM_HOME}/zimfw.zsh init -q
+fi
+source ${ZIM_HOME}/init.zsh
 
 # Start direnv
 eval "$(direnv hook zsh)"

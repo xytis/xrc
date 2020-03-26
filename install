@@ -25,6 +25,18 @@ if [ $? -ne 0 ]; then
   pip3 install neovim || exit 1
 fi
 
+which fasd 2>&1 >/dev/null
+if [ $? -ne 0 ]; then
+  echo "fasd not found, installing via brew"
+  brew install fasd || exit 1
+fi
+
+which exa 2>&1 >/dev/null
+if [ $? -ne 0 ]; then
+  echo "exa not found, installing via brew"
+  brew install exa || exit 1
+fi
+
 if [ ! -d ~/.config ]; then
   mkdir ~/.config
 fi
@@ -47,23 +59,16 @@ if [ ! -f ~/.ctags ]; then
   ln -sv $XRCDIR/ctags/ctags ~/.ctags
 fi
 
-if [ ! -h ~/.zshrc ]; then
-  if [ -f ~/.zshrc ]; then
-    echo "Preserving old .zshrc"
-    mv -v ~/.zshrc ~/.zshrc.old
+for config in zshrc zshenv zlogin zimrc; do
+  if [ ! -h ~/.$config ]; then
+    if [ -f ~/.$config ]; then
+      echo "Preserving old .$config"
+      mv -v ~/.$config ~/.$config.old
+    fi
+    echo "Linking .$config"
+    ln -sv $XRCDIR/$config ~/.$config
   fi
-  echo "Linking .zshrc"
-  ln -sv $XRCDIR/zshrc ~/.zshrc
-fi
+done
 
-if [ ! -f ~/.zimrc ]; then
-  echo "Installing zim"
-  setopt EXTENDED_GLOB
-  for template_file in ${XRCDIR}/zim/templates/*; do
-    user_file="${HOME}/.${template_file:t}"
-    touch ${user_file}
-    ( print -rn "$(<${template_file})$(<${user_file})" >! ${user_file} ) 2>/dev/null
-  done
-fi
-
-echo "XRC applied and in sync!"
+# Launch zim install
+source $XRCDIR/zim/zimfw.zsh install

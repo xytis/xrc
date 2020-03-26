@@ -24,6 +24,8 @@ fi
 alias :q='exit'
 
 # Git Aliases
+alias g='git'
+
 alias gs='git status'
 alias gst='git stash'
 alias gsp='git stash pop'

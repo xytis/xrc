@@ -23,8 +23,6 @@ if dein#load_state('~/.cache/dein')
   call dein#save_state()
 endif
 
-filetype plugin indent on
-
 if dein#check_install()
   call dein#install()
 endif

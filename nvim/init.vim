@@ -30,9 +30,7 @@ let mapleader=","
 
 " ============== Plugin Initialization ==============
 " This loads all the plugins specified in ~/.config/nvim/plugins.vim
-if filereadable(expand("~/.config/nvim/plugins.vim"))
-  source ~/.config/nvim/plugins.vim
-endif
+source ~/.config/nvim/plugins.vim
 
 " ================ Indentation ======================
 

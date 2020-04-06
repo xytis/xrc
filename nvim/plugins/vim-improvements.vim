@@ -2,7 +2,7 @@ call dein#add("AndrewRadev/splitjoin.vim")
 call dein#add("Raimondi/delimitMate")
 
 " Enables vim to understand filename:line_number format
-"call dein#add("bogado/file-line.git")
+call dein#add("bogado/file-line")
 
 call dein#add("chaoren/vim-wordmotion")
 
@@ -22,4 +22,3 @@ call dein#add("vim-scripts/lastpos.vim")
 call dein#add("vim-scripts/sudo.vim")
 call dein#add("vim-scripts/todo-txt.vim")
 call dein#add("goldfeld/ctrlr.vim")
-

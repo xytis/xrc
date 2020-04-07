@@ -5,6 +5,12 @@
 
 XRCDIR=$(cd `dirname $0` && pwd)
 
+$XRCDIR/update
+if [ $? -eq 2 ]; then
+  echo "Found new version. Restarting."
+  exec $XRCDIR/install
+fi
+
 which brew 2>&1 >/dev/null
 if [ $? -ne 0 ]; then
   echo "Unable to find brew. Aborting."

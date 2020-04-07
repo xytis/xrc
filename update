@@ -5,6 +5,7 @@ git fetch --all --recurse-submodules -q
 if [ $(git rev-parse HEAD) != $(git rev-parse origin/master) ]; then
   echo "Mismatch of origin and current version. Resetting."
   git reset origin/master
+  git submodules update --recursive
   exit 2
 fi
 exit 0

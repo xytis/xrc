@@ -56,6 +56,9 @@ fi
 if [ ! -d ~/.config/nvim ]; then
   echo "Linking nvim config"
   ln -sv $XRCDIR/nvim ~/.config
+fi
+
+if [ ! -d /.cache/dein ]; then
   echo "Installing dein"
   curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > /tmp/dein-installer.sh
   sh /tmp/dein-installer.sh ~/.cache/dein

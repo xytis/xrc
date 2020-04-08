@@ -5,6 +5,7 @@ let g:ale_fixers = {
 \   'php': ['php_cs_fixer'],
 \   'python': ['black'],
 \   'rust': ['rustfmt'],
+\   'terraform': ['terraform'],
 \   'typescript': ['prettier', 'tslint'],
 \}
 

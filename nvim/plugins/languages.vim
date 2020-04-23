@@ -12,3 +12,5 @@ call dein#add("fatih/vim-go.git", { "do": ":GoInstallBinaries" })
 " cargo +ninghtly install racer
 " rustup component add rust-src
 call dein#add("racer-rust/vim-racer")
+
+call dein#add("mhartington/nvim-typescript", {"build": "./install.sh"})

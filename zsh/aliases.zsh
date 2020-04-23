@@ -48,7 +48,7 @@ alias grr='git remote rm'
 alias grad='git remote add'
 alias gr='git rebase'
 alias gra='git rebase --abort'
-alias ggrc='git rebase --continue'
+alias grc='git rebase --continue'
 alias gbi='git rebase --interactive'
 alias gl='git l'
 alias glg='git l'
@@ -101,3 +101,6 @@ alias ap='ansible-playbook'
 
 # Kubernetes
 alias k='kubectl'
+
+# Pulumi
+alias pul='pulumi'

@@ -12,3 +12,6 @@ bindkey "$terminfo[kcud1]"  history-substring-search-down
 # Ensure Home/End still work on a line in vi mode
 bindkey "$terminfo[khome]"  beginning-of-line
 bindkey "$terminfo[kend]"   end-of-line
+
+# Ensure Tab/Shift+Tab work as complete navigation
+bindkey "$terminfo[kcbt]"   reverse-menu-complete

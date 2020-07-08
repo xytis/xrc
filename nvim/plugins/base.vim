@@ -10,7 +10,7 @@ call dein#add("Shougo/vimproc.vim", {
 \     "linux" : "make",
 \     "unix" : "gmake",
 \    },
-\ "do" : ":VimProcInstall",
+\ "hook_post_update" : ":VimProcInstall",
 \ })
 call dein#add("tpope/vim-abolish")
 call dein#add("tpope/vim-endwise.git")

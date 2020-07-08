@@ -23,5 +23,8 @@ source ${ZIM_HOME}/init.zsh
 # Start direnv
 eval "$(direnv hook zsh)"
 
+# Hook fzf
+[[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
+
 # Load custom definitions
 [[ -d ${HOME}/.xrc/zsh ]] && for config_file (${HOME}/.xrc/zsh/*.zsh) source $config_file

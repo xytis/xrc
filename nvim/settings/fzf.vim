@@ -17,7 +17,7 @@ nnoremap <silent> <leader>ft :Filetypes<CR>
 imap <C-x><C-f> <plug>(fzf-complete-file-ag)
 imap <C-x><C-l> <plug>(fzf-complete-line)
 
-function! SearchWorWithAg()
+function! SearchWordWithAg()
   execute 'Ag' expand('<cword>')
 endfunction
 

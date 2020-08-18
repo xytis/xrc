@@ -5,3 +5,6 @@ let g:solarized_termtrans=1
 
 colorscheme solarized
 "set background=dark
+
+" Dock the preview window
+let g:float_preview#docked = 1

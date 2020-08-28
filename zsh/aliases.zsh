@@ -20,6 +20,12 @@ if [ $NEOVIM_INSTALLED -eq 0 ]; then
   export EDITOR=nvim
 fi
 
+which trash > /dev/null 2>&1
+TRASH_INSTALLED=$?
+if [ $TRASH_INSTALLED -eq 0 ]; then
+  alias rm="trash"
+fi
+
 # mimic vim functions
 alias :q='exit'
 

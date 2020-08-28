@@ -50,6 +50,12 @@ if [ $? -ne 0 ]; then
   $(brew --prefix)/opt/fzf/install --key-bindings --completion --no-update-rc --no-bash --no-fish || exit 1
 fi
 
+which trash 2>&1 >/dev/null
+if [ $? -ne 0 ]; then
+  echo "trash not found, installing via brew"
+  brew install trash || exit 1
+fi
+
 ctags --version 2>&1 | grep Universal 2>&1 >/dev/null
 if [ $? -ne 0 ]; then
   echo "universal-ctags not found, installing via brew"

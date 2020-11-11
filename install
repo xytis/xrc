@@ -93,7 +93,7 @@ if [ ! -f ~/.ctags ]; then
   ln -sv $XRCDIR/ctags/ctags ~/.ctags
 fi
 
-for config in zshrc zshenv zlogin zimrc; do
+for config in zshrc zshenv zlogin zimrc direnvrc; do
   if [ ! -h ~/.$config ]; then
     if [ -f ~/.$config ]; then
       echo "Preserving old .$config"

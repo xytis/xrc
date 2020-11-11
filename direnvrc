@@ -1,0 +1,10 @@
+# Usage: use ruby <version>
+#
+# Loads the specified ruby version into the environent
+# https://direnv.net/docs/ruby.html
+#
+use_ruby() {
+  local ruby_dir=`find $HOME/.rubies -name "*$1*" -type d -print | head -n 1`
+  load_prefix $ruby_dir
+  layout ruby
+}

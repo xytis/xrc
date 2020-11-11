@@ -99,8 +99,8 @@ alias cl='clear'
 # Zippin
 alias gz='tar -zcvf'
 
-# TODOS
-alias t='todo.sh'
+# Terraform
+alias t='terraform'
 
 # Ansible
 alias ap='ansible-playbook'

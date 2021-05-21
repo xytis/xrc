@@ -149,6 +149,7 @@
   path = ~/.config/git/user
 [init]
   templatedir = ~/.config/git/template
+	defaultBranch = main
 [status]
   submoduleSummary = true
 [http]

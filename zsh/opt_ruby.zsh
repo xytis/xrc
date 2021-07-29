@@ -1,5 +1,5 @@
 # Check if brew based ruby is used
-RUBYPATH=/usr/local/opt/ruby
+RUBYPATH=$(brew --prefix ruby)
 if [[ -d $RUBYPATH ]]; then
   path=(
     $RUBYPATH/bin

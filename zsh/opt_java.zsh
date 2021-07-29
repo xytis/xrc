@@ -1,5 +1,5 @@
 # Check if brew based java is used
-JAVAPATH=/usr/local/opt/openjdk
+JAVAPATH=$(brew --prefix openjdk)
 if [[ -d $JAVAPATH ]]; then
   path=(
     $JAVAPATH/bin

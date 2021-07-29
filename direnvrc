@@ -19,13 +19,59 @@ use_ruby() {
 # Versions are installed using brew or to ~/.phps
 #
 use_php() {
-  local ver=$1
-  if [[ -z $ver ]] && [[ -f .php-version ]]; then
-    ver=$(cat .php-version)
-  fi
-  if [[ -z $ver ]]; then
-    echo Unknown php version
-    exit 1
-  fi
-  source $(brew --prefix php-version)/php-version.sh && php-version $ver
+  local version
+  version="${1}"
+
+  [[ -z "${version}" ]] && version="$(read_version_file .php-version)"
+  [[ -z "${version}" ]] && return
+
+  source $(brew --prefix php-version)/php-version.sh && php-version "${version}"
+}
+
+# Usage: use nvm <version>|--auto
+#
+# Uses nvm internaly (installed by brew)
+#
+use_nvm()
+{
+  local version
+  version="${1}"
+
+  [[ -z "${version}" ]] && version="$(read_version_file .node-version .nvmrc)"
+  [[ -z "${version}" ]] && return
+
+  NVM_DIR="$HOME/.nvm"
+  source $(brew --prefix nvm)/nvm.sh && nvm use "${version}"
+}
+
+# Utilities
+find_up_()
+{
+  (
+    while true; do
+      for v in "${@}"; do
+        if [[ -f "${v}" ]]; then
+          echo "${PWD}/${v}"
+          return 0
+        fi
+      done
+
+      if [[ "${PWD}" == / ]] || [[ "${PWD}" == // ]]; then
+        return 1
+      fi
+
+      cd ..
+    done
+  )
+}
+
+read_version_file()
+{
+  local file
+  file="$(find_up_ "${@}")"
+
+  [[ -z "${file}" ]] && return
+
+  watch_file "${file}"
+  cat 2>/dev/null "${file}"
 }

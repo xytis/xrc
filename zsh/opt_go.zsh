@@ -1,6 +1,6 @@
 # Check if go is used
-which go 2>&1 >/dev/null
-if [ $? -eq 0 ]; then
+GOPATH=$(brew --prefix go)
+if [[ -d $GOPATH ]]; then
   export GOPATH=$HOME/.go
   [ -e $GOPATH ] || mkdir $GOPATH
 

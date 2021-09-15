@@ -72,7 +72,7 @@
 
   #fetch
   fall = fetch --all
-  full = "!f() { git fetch origin $1:$1; }; f"
+  sync = "!f() { br=${1:-$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')}; git fetch origin $br:$br; }; f"
 
   # rebase
   rc = rebase --continue            # continue rebase

@@ -72,6 +72,7 @@
 
   #fetch
   fall = fetch --all
+  full = "!f() { git fetch origin $1:$1; }; f"
 
   # rebase
   rc = rebase --continue            # continue rebase

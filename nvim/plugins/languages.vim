@@ -3,6 +3,7 @@ call dein#add("dense-analysis/ale")
 call dein#add("Shougo/deoplete.nvim", { "hook_post_update": ":UpdateRemotePlugins" })
 call dein#add("sheerun/vim-polyglot")
 "call dein#add("ludovicchabant/vim-gutentags")
+call dein#add("nvim-treesitter/nvim-treesitter", {"hook_post_update": "TSUpdate"})
 
 call dein#add("jtratner/vim-flavored-markdown.git")
 

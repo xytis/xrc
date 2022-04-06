@@ -74,6 +74,12 @@ if [ $? -ne 0 ]; then
   brew install ripgrep || exit 1
 fi
 
+which delta 2>&1 >/dev/null
+if [ $? -ne 0 ]; then
+  echo "git-delta not found, installing via brew"
+  brew install git-delta || exit 1
+fi
+
 ctags --version 2>&1 | grep Universal 2>&1 >/dev/null
 if [ $? -ne 0 ]; then
   echo "universal-ctags not found, installing via brew"

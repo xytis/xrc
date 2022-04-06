@@ -120,6 +120,7 @@
   summary = true
   verbosity = 1
   tool = fugitive
+  conflictstyle = diff3
 [apply]
   whitespace = nowarn
 [branch]
@@ -134,6 +135,7 @@
   autocrlf = false
   editor = nvim
   excludesfile = ~/.config/git/ignore
+  pager = delta
 [advice]
   statusHints = false
 [diff]
@@ -142,12 +144,17 @@
   mnemonicprefix = true
   algorithm = patience
   submodule = log
+  colorMoved = default
+[delta]
+  navigate = true  # use n and N to move between diff sections
 [rerere]
   # Remember my merges
   # http://gitfu.wordpress.com/2008/04/20/git-rerere-rereremember-what-you-did-last-time/
   enabled = true
 [include]
   path = ~/.config/git/user
+[interactive]
+  diffFilter = delta --color-only
 [init]
   templatedir = ~/.config/git/template
 	defaultBranch = main

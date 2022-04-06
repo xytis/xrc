@@ -62,6 +62,18 @@ if [ $? -ne 0 ]; then
   brew install direnv || exit 1
 fi
 
+which just 2>&1 >/dev/null
+if [ $? -ne 0 ]; then
+  echo "just not found, installing via brew"
+  brew install just || exit 1
+fi
+
+which rg 2>&1 >/dev/null
+if [ $? -ne 0 ]; then
+  echo "ripgrep not found, installing via brew"
+  brew install ripgrep || exit 1
+fi
+
 ctags --version 2>&1 | grep Universal 2>&1 >/dev/null
 if [ $? -ne 0 ]; then
   echo "universal-ctags not found, installing via brew"

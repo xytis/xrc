@@ -1,3 +1,4 @@
+vim.api.nvim_exec([[
 nnoremap <silent> <leader><space> :Files<CR>
 nnoremap <silent> <leader>a :Buffers<CR>
 nnoremap <silent> <leader>A :Windows<CR>
@@ -37,3 +38,4 @@ function! SearchWithRgInDirectory(...)
   call fzf#vim#ag(join(a:000[1:], ' '), extend({'dir': a:1}, g:fzf#vim#default_layout))
 endfunction
 command! -nargs=+ -complete=dir RgIn call SearchWithRgInDirectory(<f-args>)d
+]], false)

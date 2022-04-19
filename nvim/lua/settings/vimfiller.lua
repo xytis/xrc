@@ -1,7 +1,5 @@
+vim.api.nvim_exec([[
 " https://github.com/Shougo/vimfiler.vim
-
-" call vimfiler#set_execute_file('txt', 'notepad')
-" call vimfiler#set_execute_file('c', ['gvim', 'notepad'])
 
 let g:vimfiler_as_default_explorer = 1
 
@@ -22,11 +20,6 @@ let g:vimfiler_tree_closed_icon = '▸'
 let g:vimfiler_file_icon = '-'
 let g:vimfiler_marked_file_icon = '*'
 
-" Use trashbox.
-" Windows only and require latest vimproc.
-"let g:unite_kind_file_use_trashbox = 1
-
-autocmd FileType vimfiler call s:vimfiler_settings()
 function! s:vimfiler_settings()
 
   nmap <buffer> <Esc> <Plug>(vimfiler_hide)
@@ -41,3 +34,6 @@ function! s:vimfiler_settings()
         \ vimfiler#do_switch_action('split')
 endfunction
 
+autocmd FileType vimfiler call s:vimfiler_settings()
+
+]], false)

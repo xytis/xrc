@@ -1,3 +1,4 @@
+vim.api.nvim_exec([[
 let g:lightline = {
       \ 'colorscheme': 'solarized',
       \ 'active': {
@@ -36,3 +37,4 @@ endfunction
 
 " Use status bar even with single buffer
 set laststatus=2
+]], false)

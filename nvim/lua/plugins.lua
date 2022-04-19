@@ -6,11 +6,11 @@ if fn.empty(fn.glob(install_path)) > 0 then
         "git", "clone", "--depth", "1",
         "https://github.com/wbthomason/packer.nvim", install_path
     })
-    download_result = fn.system({"ls", "-l", install_path})
+    vim.cmd('packadd packer.nvim')
 end
 
 -- Load plugins
-return require("packer").startup(function()
+return require("packer").startup(function(use)
     -- Packer can manage itself
     use("wbthomason/packer.nvim")
 
@@ -59,7 +59,7 @@ return require("packer").startup(function()
     -- See :help easymotion, triggered as <leader><leader><motion>
     use("Lokaltog/vim-easymotion")
     -- File finder
-    use({"junegunn/fzf", run = "fzf#install()"})
+    use({"junegunn/fzf", run = ":call fzf#install()"})
     use("junegunn/fzf.vim")
 
     -- Snippets
@@ -107,4 +107,6 @@ return require("packer").startup(function()
     use("vim-scripts/sudo.vim")
     use("vim-scripts/todo-txt.vim")
     use("goldfeld/ctrlr.vim")
+
+    if packer_bootstrap then require("packer").sync() end
 end)

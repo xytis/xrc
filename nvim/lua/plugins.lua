@@ -10,7 +10,7 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 -- Load plugins
-return require("packer").startup(function(use)
+require("packer").startup(function(use)
     -- Packer can manage itself
     use("wbthomason/packer.nvim")
 
@@ -107,6 +107,20 @@ return require("packer").startup(function(use)
     use("vim-scripts/sudo.vim")
     use("vim-scripts/todo-txt.vim")
     use("goldfeld/ctrlr.vim")
-
-    if packer_bootstrap then require("packer").sync() end
 end)
+
+-- Hook packer to execute on changes to this file
+local current_file = string.sub(debug.getinfo(1).source, 2)
+vim.cmd(string.format([[
+augroup packer_user_config
+autocmd!
+autocmd BufWritePost %s source %s | PackerCompile
+autocmd User PackerCompileDone PackerInstall
+augroup end
+]], current_file, current_file))
+
+if packer_bootstrap then
+    require("packer").sync()
+else
+    require('packer').compile()
+end

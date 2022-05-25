@@ -6,9 +6,11 @@ export LC_ALL=en_US.UTF-8
 
 path=(
   /opt/homebrew/bin
+  /usr/local/bin
   /usr/bin
   /bin
   /opt/homebrew/sbin
+  /usr/local/sbin
   /usr/sbin
   /sbin
 )

@@ -15,6 +15,10 @@ path=(
   /sbin
 )
 
+fpath+=(
+  /opt/homebrew/share/zsh/site-functions
+)
+
 # Start zim
 if [[ ${ZIM_HOME}/init.zsh -ot ${ZDOTDIR:-${HOME}}/.zimrc ]]; then
   # Update static initialization script if it's outdated, before sourcing it

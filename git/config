@@ -29,6 +29,8 @@
 
   # branch
   b = branch -v                     # branch (verbose)
+  #via https://dev.to/iamandrewluca/remove-gone-git-branches-36eh
+  gone = "!f() { git fetch --all --prune; git branch -vv | awk '/: gone]/{print $1}' | xargs git branch -D; }; f"
 
   # commit
   c = commit -m                     # commit with message
@@ -129,8 +131,9 @@
   # 'git push' will push the current branch to its tracking branch
   # the usual default is to push all branches
   default = upstream
+  autoSetupRemote = true
 [pull]
-	rebase = false
+  rebase = false
 [core]
   autocrlf = false
   editor = nvim

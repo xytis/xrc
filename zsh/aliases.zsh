@@ -27,6 +27,12 @@ if [ $TRASH_INSTALLED -eq 0 ]; then
   alias rm="trash"
 fi
 
+bat --version > /dev/null 2>&1
+BAT_INSTALLED=$?
+if [ $BAT_INSTALLED -eq 0 ]; then
+  alias cat="bat"
+fi
+
 # mimic vim functions
 alias :q='exit'
 

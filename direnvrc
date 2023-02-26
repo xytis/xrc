@@ -6,7 +6,8 @@
 # Uses ruby-install (`brew install ruby-install`)
 #
 use_ruby() {
-  local ruby_dir=`find $HOME/.rubies -name "*$1*" -type d -print | head -n 1`
+  #local ruby_dir=`find $HOME/.rubies -name "*$1*" -type d -print | head -n 1`
+  local ruby_dir="$HOME/.rubies/ruby-$1"
   load_prefix $ruby_dir
   layout ruby
 }

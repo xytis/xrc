@@ -43,6 +43,12 @@ if [ $? -ne 0 ]; then
   brew install exa || exit 1
 fi
 
+which bat 2>&1 >/dev/null
+if [ $? -ne 0 ]; then
+  echo "bat not found, installing via brew"
+  brew install bat || exit 1
+fi
+
 which fzf 2>&1 >/dev/null
 if [ $? -ne 0 ]; then
   echo "fzf not found, installing via brew"

@@ -37,3 +37,6 @@ eval "$(rtx activate zsh)"
 
 # Load custom definitions
 [[ -d ${HOME}/.xrc/zsh ]] && for config_file (${HOME}/.xrc/zsh/*.zsh) source $config_file
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /opt/homebrew/bin/terraform terraform

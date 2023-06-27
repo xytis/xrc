@@ -29,22 +29,6 @@ use_php() {
   source $(brew --prefix php-version)/php-version.sh && php-version "${version}"
 }
 
-# Usage: use nvm <version>|--auto
-#
-# Uses nvm internaly (installed by brew)
-#
-use_nvm()
-{
-  local version
-  version="${1}"
-
-  [[ -z "${version}" ]] && version="$(read_version_file .node-version .nvmrc)"
-  [[ -z "${version}" ]] && return
-
-  NVM_DIR="$HOME/.nvm"
-  source $(brew --prefix nvm)/nvm.sh && nvm use "${version}"
-}
-
 # Utilities
 find_up_()
 {

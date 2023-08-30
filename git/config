@@ -74,6 +74,7 @@
 
   #fetch
   fall = fetch --all
+  fap = fetch --all --prune
   sync = "!f() { br=${1:-$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')}; git fetch origin $br:$br; }; f"
 
   # rebase

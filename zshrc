@@ -29,8 +29,8 @@ source ${ZIM_HOME}/init.zsh
 # Start direnv
 eval "$(direnv hook zsh)"
 
-# Start rtx
-eval "$(rtx activate zsh)"
+# Start mise
+eval "$(mise activate zsh)"
 
 # Hook fzf
 [[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh

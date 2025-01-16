@@ -84,12 +84,6 @@ if [ $? -ne 0 ]; then
   brew install git-delta || exit 1
 fi
 
-ctags --version 2>&1 | grep Universal 2>&1 >/dev/null
-if [ $? -ne 0 ]; then
-  echo "universal-ctags not found, installing via brew"
-  brew install --HEAD universal-ctags/universal-ctags/universal-ctags || exit 1
-fi
-
 if [ ! -d ~/.config ]; then
   mkdir ~/.config
 fi
@@ -112,11 +106,6 @@ fi
 if [ ! -d ~/.config/ghostty ]; then
   echo "Linking ghostty config"
   ln -sv $XRCDIR/ghostty ~/.config
-fi
-
-if [ ! -f ~/.ctags ]; then
-  echo "Linking ctags config"
-  ln -sv $XRCDIR/ctags/ctags ~/.ctags
 fi
 
 for config in zshrc zshenv zlogin zimrc direnvrc; do

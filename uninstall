@@ -2,10 +2,9 @@
 
 XRCDIR=$(cd `dirname $0` && pwd)
 
-echo "Removing all traces of xrc"
+echo "Removing *some* traces of xrc"
 rm -f ~/.config/nvim
 rm -f ~/.config/git
-rm -f ~/.ctags
 for config in zshrc zshenv zlogin zimrc; do
   rm -f ~/.$config
 done

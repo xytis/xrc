@@ -3,11 +3,11 @@
 alias df='df -h'
 alias du='du -h -d 2'
 
-exa --version > /dev/null 2>&1
-EXA_INSTALLED=$?
-if [ $EXA_INSTALLED -eq 0 ]; then
-  alias ll='exa -al'
-  alias ls='exa'
+eza --version > /dev/null 2>&1
+EZA_INSTALLED=$?
+if [ $EZA_INSTALLED -eq 0 ]; then
+  alias ll='eza -al'
+  alias ls='eza'
 else
   alias ll='ls -alGh'
   alias ls='ls -Gh'

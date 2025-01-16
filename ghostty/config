@@ -1,0 +1,10 @@
+theme = catppuccin-macchiato
+
+font-family = Menlo
+font-size = 13
+
+copy-on-select = true
+
+keybind = command+equal=increase_font_size:1
+keybind = command+minus=decrease_font_size:1
+keybind = command+shift+equal=reset_font_size

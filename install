@@ -17,30 +17,22 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
-which python3 2>&1 | grep "/usr/local/bin/" 2>&1 >/dev/null
-if [ $? -ne 0 ]; then
-  echo "Python 3 not found or not new enough, installing via brew"
-  brew install python3 || exit 1
-fi
-
 which nvim 2>&1 >/dev/null
 if [ $? -ne 0 ]; then
   echo "Neovim not found, installing via brew"
   brew install neovim || exit 1
-  echo "Ensuring python module exists"
-  pip3 install neovim || exit 1
 fi
 
-which fasd 2>&1 >/dev/null
+which zoxide 2>&1 >/dev/null
 if [ $? -ne 0 ]; then
-  echo "fasd not found, installing via brew"
-  brew install fasd || exit 1
+  echo "zoxide not found, installing via brew"
+  brew install zoxide || exit 1
 fi
 
-which exa 2>&1 >/dev/null
+which eza 2>&1 >/dev/null
 if [ $? -ne 0 ]; then
-  echo "exa not found, installing via brew"
-  brew install exa || exit 1
+  echo "eza not found, installing via brew"
+  brew install eza || exit 1
 fi
 
 which bat 2>&1 >/dev/null
@@ -110,6 +102,16 @@ fi
 if [ ! -d ~/.config/git ]; then
   echo "Linking git config"
   ln -sv $XRCDIR/git ~/.config
+fi
+
+if [ ! -d ~/.config/karabiner ]; then
+  echo "Linking karabiner config"
+  ln -sv $XRCDIR/karabiner ~/.config
+fi
+
+if [ ! -d ~/.config/ghostty ]; then
+  echo "Linking ghostty config"
+  ln -sv $XRCDIR/ghostty ~/.config
 fi
 
 if [ ! -f ~/.ctags ]; then

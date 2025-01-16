@@ -21,6 +21,11 @@ return {
 
       vim.keymap.set("n", "<leader>fh", require('telescope.builtin').help_tags)
       vim.keymap.set("n", "<leader>fd", require('telescope.builtin').find_files)
+      vim.keymap.set("n", "<leader>ff", function()
+        require("telescope.builtin").find_files({
+          cwd = require("oil").get_current_dir()
+        })
+      end, { desc = "Find files in the current directory" })
     end
   }
 }

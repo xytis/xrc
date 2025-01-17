@@ -45,7 +45,6 @@ which fzf 2>&1 >/dev/null
 if [ $? -ne 0 ]; then
   echo "fzf not found, installing via brew"
   brew install fzf || exit 1
-  $(brew --prefix)/opt/fzf/install --key-bindings --completion --no-update-rc --no-bash --no-fish || exit 1
 fi
 
 which trash 2>&1 >/dev/null

@@ -1,6 +1,7 @@
 return {
   {
     "nvim-treesitter/nvim-treesitter",
+    tag = "v0.9.3",
     build = ":TSUpdate",
     config = function()
       require'nvim-treesitter.configs'.setup {
@@ -18,8 +19,11 @@ return {
         },
       }
 
+      -- Setup treesitter as fold method
       vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
       vim.opt.foldtext = "v:lua.vim.treesitter.foldtext()"
+      vim.opt.foldmethod = "expr"
+      vim.opt.foldlevel = 16
     end,
   }
 }

@@ -10,3 +10,4 @@ vim.cmd.colorscheme "catppuccin-macchiato"
 
 vim.opt.number = true
 vim.opt.clipboard = "unnamedplus"
+vim.opt.mouse = a

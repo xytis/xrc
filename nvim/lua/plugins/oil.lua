@@ -4,9 +4,9 @@ return {
   ---@type oil.SetupOpts
   opts = {},
   -- Optional dependencies
-  dependencies = { { "echasnovski/mini.icons", opts = {} } },
+  dependencies = { { 'echasnovski/mini.icons', opts = {} } },
   config = function()
-    require("oil").setup({
+    require('oil').setup({
       default_file_explorer = true,
       delete_to_trash = false,
       view_options = {
@@ -26,6 +26,6 @@ return {
       },
     })
 
-    vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+    vim.keymap.set('n', '-', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
   end
 }

@@ -107,7 +107,7 @@ if [ ! -d ~/.config/ghostty ]; then
   ln -sv $XRCDIR/ghostty ~/.config
 fi
 
-for config in zshrc zshenv zlogin zimrc direnvrc; do
+for config in zshrc zshenv zlogin zprofile zimrc direnvrc; do
   if [ ! -h ~/.$config ]; then
     if [ -f ~/.$config ]; then
       echo "Preserving old .$config"

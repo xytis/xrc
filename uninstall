@@ -5,7 +5,7 @@ XRCDIR=$(cd `dirname $0` && pwd)
 echo "Removing *some* traces of xrc"
 rm -f ~/.config/nvim
 rm -f ~/.config/git
-for config in zshrc zshenv zlogin zimrc; do
+for config in zshrc zshenv zlogin zprofile zimrc direnvrc; do
   rm -f ~/.$config
 done
 rm -fr $XRCDIR

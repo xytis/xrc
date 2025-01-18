@@ -1,23 +1,17 @@
 return {
   {
     'nvim-treesitter/nvim-treesitter',
-    tag = 'v0.9.3',
-    version = '0.9.3',
     build = ':TSUpdate',
+    lazy = true, -- NOTE: explicitly set the lazy to delay the treesitter init a bit.
+                 -- If this is not done, there exists a race condition between what NeoVim
+                 -- sets in lua and what treesitter expects,
+    priority = 1000,
     config = function()
       require'nvim-treesitter.configs'.setup {
         auto_install = true,
-        highlight = {
-          enable = true,
-          disable = function(lang, buf)
-            local max_filesize = 100 * 1024 -- 100 KB
-            local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
-            if ok and stats and stats.size > max_filesize then
-              return true
-            end
-          end,
-          additional_vim_regex_highlighting = false,
-        },
+        sync_install = false,
+        highlight = { enable = true },
+        indent = { enable = true },
       }
 
       -- Setup treesitter as fold method

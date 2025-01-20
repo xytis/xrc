@@ -8,6 +8,21 @@ require("config.lazy")
 
 vim.cmd.colorscheme "catppuccin-macchiato"
 
-vim.opt.number = true
-vim.opt.clipboard = "unnamedplus"
-vim.opt.mouse = a
+local set = vim.opt
+
+set.shiftwidth = 2
+set.tabstop = 2
+set.number = true
+set.clipboard = "unnamedplus"
+set.mouse = "a"
+
+set.listchars = {
+  tab = "▏ ",
+  leadmultispace = "▏ ",
+  trail = "￮",
+  extends = "▶",
+  precedes = "◀",
+  nbsp = "‿",
+}
+set.list = true
+

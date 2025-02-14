@@ -17,7 +17,7 @@ set.clipboard = "unnamedplus"
 set.mouse = "a"
 
 set.listchars = {
-  tab = "▏ ",
+  tab = "▏ ⃯",
   leadmultispace = "▏ ",
   trail = "￮",
   extends = "▶",

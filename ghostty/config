@@ -1,6 +1,7 @@
 theme = catppuccin-macchiato
 
-font-family = Menlo
+font-family = Fira Code Retina
+font-feature = +cv05, +cv09, +cv16, +cv24, +cv29, +cv30, +ss02, +ss03, +ss04, +ss05, +ss07, +ss08, +ss09, +zero
 font-size = 13
 
 copy-on-select = clipboard
@@ -8,3 +9,5 @@ copy-on-select = clipboard
 keybind = command+equal=increase_font_size:1
 keybind = command+minus=decrease_font_size:1
 keybind = command+shift+equal=reset_font_size
+
+command = /opt/homebrew/bin/fish

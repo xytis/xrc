@@ -1,5 +1,3 @@
-local set = vim.opt_local
+require 'config.lang.lua'
 
-set.shiftwidth = 2
-set.expandtab = true
-set.number = true
+vim.treesitter.start()

@@ -9,3 +9,11 @@ if [[ -d $BINPATH ]]; then
     $path
   )
 fi
+
+LOCALPATH="$HOME/.local/bin"
+if [[ -d $LOCALPATH ]]; then
+  path=(
+    $LOCALPATH
+    $path
+  )
+fi

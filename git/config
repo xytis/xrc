@@ -73,6 +73,7 @@
   ps = push                         # push
 
   #fetch
+  fa = fetch --all
   fall = fetch --all
   fap = fetch --all --prune
   sync = "!f() { br=${1:-$(git remote show origin | sed -n '/HEAD branch/s/.*: //p')}; git fetch origin $br:$br; }; f"
@@ -130,16 +131,24 @@
   # the usual default is to push all branches
   default = upstream
   autoSetupRemote = true
+  followTags = true
+[rebase]
+  autoStash = true
+  missingCommitsCheck = warn
 [pull]
-  rebase = false
+  default = current
+  rebase = true
 [core]
+  excludesfile = ~/.config/git/ignore
   autocrlf = false
   editor = nvim
-  excludesfile = ~/.config/git/ignore
   pager = delta
+  compression = 9
+  preloadindex = true
 [advice]
   statusHints = false
-	addEmptyPathspec = true
+  pushNonFastForward = false
+  addEmptyPathspec = false
 [diff]
   # Git diff will use (i)ndex, (w)ork tree, (c)ommit and (o)bject
   # instead of a/b/c/d as prefixes for patches
@@ -157,11 +166,15 @@
   path = ~/.config/git/user
 [interactive]
   diffFilter = delta --color-only
+  singlekey = true
 [init]
   templatedir = ~/.config/git/template
-	defaultBranch = main
+  defaultBranch = main
 [status]
   submoduleSummary = true
+  branch = true
+  showStash = true
+  showUntrackedFiles = all
 [http]
   cookiefile = ~/.gitcookies
 [filter "lfs"]

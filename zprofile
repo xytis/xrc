@@ -1,2 +1,2 @@
 # Non-interactive setup
-eval "$(mise activate zsh --shims)"
+eval "$(/opt/homebrew/bin/mise activate zsh --shims)"

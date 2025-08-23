@@ -1,5 +1,3 @@
-echo "INIT"
-
 # Plug brew
 /opt/homebrew/bin/brew shellenv | source
 

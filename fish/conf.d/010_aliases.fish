@@ -1,5 +1,3 @@
-echo "SEEME"
-
 # Show human friendly numbers and colors
 alias df 'df -h'
 alias du 'du -h -d 2'
@@ -13,7 +11,6 @@ else
 end
 
 if type -q nvim
-  echo "NVIM ALIAS CONFIRMED"
   alias vim "nvim"
   alias vimdiff "nvim -d"
   export EDITOR nvim

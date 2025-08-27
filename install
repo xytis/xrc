@@ -17,9 +17,15 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
+which fish 2>&1 >/dev/null
+if [ $? -ne 0 ]; then
+  echo "fish not found, installing via brew"
+  brew install fish || exit 1
+fi
+
 which nvim 2>&1 >/dev/null
 if [ $? -ne 0 ]; then
-  echo "Neovim not found, installing via brew"
+  echo "neovim not found, installing via brew"
   brew install neovim || exit 1
 fi
 
@@ -107,16 +113,7 @@ if [ ! -d ~/.config/ghostty ]; then
   ln -sv $XRCDIR/ghostty ~/.config
 fi
 
-for config in zshrc zshenv zlogin zprofile zimrc direnvrc; do
-  if [ ! -h ~/.$config ]; then
-    if [ -f ~/.$config ]; then
-      echo "Preserving old .$config"
-      mv -v ~/.$config ~/.$config.old
-    fi
-    echo "Linking .$config"
-    ln -sv $XRCDIR/$config ~/.$config
-  fi
-done
-
-# Launch zim install
-source $XRCDIR/zim/zimfw.zsh install
+if [ ! -d ~/.config/fish ]; then
+  echo "Linking fish config"
+  ln -sv $XRCDIR/fish ~/.config
+fi

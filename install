@@ -59,12 +59,6 @@ if [ $? -ne 0 ]; then
   brew install trash || exit 1
 fi
 
-which direnv 2>&1 >/dev/null
-if [ $? -ne 0 ]; then
-  echo "direnv not found, installing via brew"
-  brew install direnv || exit 1
-fi
-
 which mise 2>&1 >/dev/null
 if [ $? -ne 0 ]; then
   echo "mise not found, installing via brew"
